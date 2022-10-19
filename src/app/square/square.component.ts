@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Move } from '../board/board.component';
 
 @Component({
   selector: 'app-square',
@@ -11,5 +12,8 @@ export class SquareComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  @Input()
+  public value: Move = null;
 
 }
