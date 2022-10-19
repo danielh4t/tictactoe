@@ -11,7 +11,12 @@ export type Move = 'X' | 'O' | null;
 export class BoardComponent implements OnInit {
 
   public squares: Move[] = Array(9).fill(null);
+
+  // current player
   private _turn: Move = null;
+  private human: Move = 'X';
+  private agent: Move = 'O';
+  
 
 
   constructor() { }
@@ -24,6 +29,10 @@ export class BoardComponent implements OnInit {
   }
 
   public move(index: number): void {
+  }
+
+  public startGame(): void {
+    this._turn = this.human;
   }
 
 }
