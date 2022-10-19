@@ -7,12 +7,16 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { BoardComponent } from './board/board.component';
 import { SquareComponent } from './square/square.component';
+import { GameComponent } from './game/game.component';
+import { PlayComponent } from './play/play.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BoardComponent,
-    SquareComponent
+    SquareComponent,
+    GameComponent,
+    PlayComponent
   ],
   imports: [
     BrowserModule,
