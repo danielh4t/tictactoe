@@ -1,4 +1,4 @@
-# Tictactoe
+# tictactoe
 
 ## Development server
 
