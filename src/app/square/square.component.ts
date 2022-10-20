@@ -14,6 +14,6 @@ export class SquareComponent implements OnInit {
   }
 
   @Input()
-  public value: Move = null;
+  public move: Move = null;
 
 }

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { BoardComponent } from '../board/board.component';
 
 @Component({
   selector: 'app-game',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GameComponent implements OnInit {
 
+
+  @ViewChild(BoardComponent) 
+  private board!: BoardComponent ;
+
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {  }
+
+  public start() {
+    this.board.startGame()
+   }
 
 }
