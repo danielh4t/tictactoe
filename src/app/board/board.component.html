@@ -1,7 +1,7 @@
 <main class="flex flex-col justify-center items-center">
-    <div class="grid grid-cols-3 grid-rows-3 gap-x-3 gap-y-2">
-        <div *ngFor="let square of squares; let i = index">
-            <app-square [move]="square" (click)="turn === 'X' ? makeMove(i): false"></app-square>
-        </div>
+    <div class="grid grid-cols-3 grid-rows-3 gap-2">
+        <ng-container *ngFor="let square of squares; let i = index">
+            <app-square [move]="square" (click)="turn === 'X' ? moveAsync(i): false"></app-square>
+        </ng-container>
     </div>
 </main>

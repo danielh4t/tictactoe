@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 
 export type Move = 'X' | 'O' | null;
@@ -17,14 +17,19 @@ export class BoardComponent implements OnInit
   private _turn: Move = null;
   private human: Move = 'X';
   private agent: Move = 'O';
-  private winner: Move = null;
   private gameOver: boolean = false;
 
+  @Output()
+  public moveEvent = new EventEmitter<Move>();
+
+  @Output()
+  public winnerEvent = new EventEmitter<Move>();
 
   constructor() { }
 
   ngOnInit(): void
   {
+    this.startGame()
   }
 
   public get turn()
@@ -36,24 +41,34 @@ export class BoardComponent implements OnInit
   {
     this.squares = Array(9).fill(null);
     this._turn = this.human;
-    this.winner = null;
     this.gameOver = false;
   }
 
   public endGame(player: Move): void
   {
-    this.winner = player;
     this.gameOver = true;
-    console.log(this.winner);
+    this.winnerEvent.emit(player);
   }
 
-  public makeMove(index: number): void
+  public async moveAsync(index: number): Promise<void>
   {
     // human moves
-    this.move(index, this.human);
-
+    this.moveHuman(index, this.human);
+    
+    await this.delay(500);
 
     // agent moves
+    this.moveAgent();
+  }
+
+
+  public async delay(delayInms: number): Promise<void>
+  {
+    return new Promise(resolve => setTimeout(resolve, delayInms));
+  }
+
+  private moveAgent()
+  {
     if (!this.gameOver && this._turn == this.agent)
     {
       // calculate move
@@ -69,11 +84,12 @@ export class BoardComponent implements OnInit
       })
 
       let move: number = scores.indexOf(Math.max(...scores));
-      this.move(moves[move], this.agent);
+      this.moveHuman(moves[move], this.agent);
     }
+    this.moveEvent.emit(this._turn);
   }
 
-  private move(index: number, player: Move)
+  private moveHuman(index: number, player: Move)
   {
     // make move if sqaure is empty
     if (!this.squares[index])
@@ -92,6 +108,8 @@ export class BoardComponent implements OnInit
         this.endGame(null)
       }
     }
+
+    this.moveEvent.emit(this._turn);
   }
 
   private checkWinner(squares: Move[], player: Move): boolean | null
