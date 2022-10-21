@@ -98,6 +98,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "tictactoe:build:production",
+            "firebaseProject": "tictactoe-xoxo",
+            "firebaseHostingSite": "tictactoe-xoxo"
+          }
         }
       }
     }
