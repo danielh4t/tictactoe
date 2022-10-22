@@ -1,9 +1,9 @@
 {
-  "name": "tictactoe",
-  "short_name": "tictactoe",
-  "theme_color": "#1976d2",
-  "background_color": "#fafafa",
-  "display": "standalone",
+  "name": "xoxo",
+  "short_name": "xoxo",
+  "theme_color": "#262858",
+  "background_color": "#262858",
+  "display": "fullscreen",
   "scope": "./",
   "start_url": "./",
   "icons": [

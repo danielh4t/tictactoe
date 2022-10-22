@@ -52,6 +52,8 @@ export class BoardComponent implements OnInit
 
   public async moveAsync(index: number): Promise<void>
   {
+    if(this.gameOver) return;
+    
     // human moves
     this.moveHuman(index, this.human);
     
@@ -69,7 +71,7 @@ export class BoardComponent implements OnInit
 
   private moveAgent()
   {
-    if (!this.gameOver && this._turn == this.agent)
+    if (this._turn == this.agent)
     {
       // calculate move
       let scores: number[] = [];

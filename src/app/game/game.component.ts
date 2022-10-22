@@ -20,7 +20,9 @@ export class GameComponent implements OnInit
   public move: Move = null; 
 
   public winner: Move = null; 
+  public result: string = '';
 
+  public games: number = 0;
   public xScore: number = 0;
   public oScore: number = 0;
 
@@ -30,18 +32,23 @@ export class GameComponent implements OnInit
 
   public winnerEvent($event: Move) {
     this.winner = $event;
-    if(this.winner === 'X') this.xScore++;
-    if(this.winner === 'O') this.oScore++;
-  }
-
-  public get winnerText(): string {
-    if(this.winner === 'X') return 'X won'
-    if(this.winner === 'O') return 'O won'
-    return '';
+    this.games++;
+    if(this.winner === 'X') {
+     this.xScore++;
+     this.result = 'X won!';
+    }
+    else if(this.winner === 'O'){ 
+      this.oScore++;
+      this.result = 'O won!';
+    }
+    else if(this.winner === null && this.games > 0) {
+      this.result = 'draw';
+    }
   }
 
   public play(){
     this.winner = null;
+    this.result = '';
     this.board.startGame();
   }
 }

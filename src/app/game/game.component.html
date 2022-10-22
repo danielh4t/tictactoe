@@ -23,8 +23,8 @@
         </div>
     </div>
     <app-board (moveEvent)="moveEvent($event)" (winnerEvent)="winnerEvent($event)"></app-board>
-    <div class="font-semibold text-center text-3xl text-accent">{{winnerText}}</div>
+    <div class="font-semibold text-center text-3xl text-accent">{{result}}</div>
     <div class="self-center">
-        <button class="py-2 px-8 rounded-3xl bg-primary border-2 border-accent text-accent hover:border-white hover:text-white transition transform hover:-translate-y-1" (click)="play()">Play</button>
+        <button class="py-2 px-8 rounded-3xl bg-primary border-2 border-accent text-accent hover:border-white hover:text-white transition transform hover:-translate-y-1" (click)="play()">restart</button>
     </div>
 </main>
