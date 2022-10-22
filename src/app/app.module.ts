@@ -8,7 +8,6 @@ import { environment } from '../environments/environment';
 import { BoardComponent } from './board/board.component';
 import { SquareComponent } from './square/square.component';
 import { GameComponent } from './game/game.component';
-import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
 
 
 @NgModule({
@@ -23,11 +22,8 @@ import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
     AppRoutingModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
-      // Register the ServiceWorker as soon as the application is stable
-      // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
-    }),
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
