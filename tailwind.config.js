@@ -8,7 +8,7 @@ module.exports = {
       colors: {
         'primary': '#262858',
         'secondary': '#323464',
-        'accent': '#5c5d81',
+        'accent': '#DADDFC',
       },
       fontFamily: {
         'hand': ['Just Another Hand'],

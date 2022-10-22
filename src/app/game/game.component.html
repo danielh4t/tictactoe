@@ -1,8 +1,8 @@
 <main class="flex flex-col space-y-3 lg:space-y-6">
     <div class="flex flex-row justify-center gap-9 lg:gap-24">
-        <div class="font-semibold">
-            <p class="text-xl text-accent">PLAYER X</p>
-            <p class="text-3xl text-white font-mono">{{xScore}}</p>
+        <div class="text-start text-accent font-semibold">
+            <p class="text-xl">PLAYER X</p>
+            <p class="text-3xl font-mono">{{xScore}}</p>
         </div>
         <div class="flex flex-row space-x-2">
             <div class="flex justify-center items-center h-6 w-6 lg:h-9 lg:w-9 rounded-full border-2 border-pink-300">
@@ -17,14 +17,14 @@
                 </ng-container>
             </div>
         </div>
-        <div class="text-end font-semibold">
-            <p class="text-xl text-accent">PLAYER O</p>
-            <p class="text-3xl text-white font-mono">{{oScore}}</p>
+        <div class="text-end text-accent font-semibold">
+            <p class="text-xl">PLAYER O</p>
+            <p class="text-3xl font-mono">{{oScore}}</p>
         </div>
     </div>
     <app-board (moveEvent)="moveEvent($event)" (winnerEvent)="winnerEvent($event)"></app-board>
     <div class="font-semibold text-center text-3xl text-accent">{{result}}</div>
     <div class="self-center">
-        <button class="py-2 px-8 rounded-3xl bg-primary border-2 border-accent text-accent hover:border-white hover:text-white transition transform hover:-translate-y-1" (click)="play()">restart</button>
+        <button class="py-2 px-8 rounded-3xl bg-primary border-2 border-accent text-accent hover:border-white hover:font-semibold transition transform hover:-translate-y-1" (click)="play()">restart</button>
     </div>
 </main>
