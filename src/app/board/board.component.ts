@@ -55,7 +55,7 @@ export class BoardComponent implements OnInit
     if(this.gameOver) return;
     
     // human moves
-    this.moveHuman(index, this.human);
+    this.move(index, this.human);
     
     await this.delay(500);
 
@@ -86,19 +86,18 @@ export class BoardComponent implements OnInit
       })
 
       let move: number = scores.indexOf(Math.max(...scores));
-      this.moveHuman(moves[move], this.agent);
+      this.move(moves[move], this.agent);
     }
     this.moveEvent.emit(this._turn);
   }
 
-  private moveHuman(index: number, player: Move)
+  private move(index: number, player: Move)
   {
     // make move if sqaure is empty
     if (!this.squares[index])
     {
       this.squares.splice(index, 1, player);
-      this._turn = player === this.agent ? this.human : this.agent;
-
+      
       let state = this.checkWinner(this.squares, player);
       if (state)
       {
@@ -109,9 +108,15 @@ export class BoardComponent implements OnInit
         // draw
         this.endGame(null)
       }
+      else 
+      {
+        // continue game
+        this._turn = player === this.agent ? this.human : this.agent;
+        this.moveEvent.emit(this._turn);
+      }
     }
 
-    this.moveEvent.emit(this._turn);
+    
   }
 
   private checkWinner(squares: Move[], player: Move): boolean | null
