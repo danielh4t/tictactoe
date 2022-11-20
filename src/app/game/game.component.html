@@ -1,4 +1,4 @@
-<main class="flex flex-col space-y-3 lg:space-y-6">
+<main class="flex flex-col items-center  space-y-3 lg:space-y-6">
     <div class="flex flex-row justify-center gap-9 lg:gap-24">
         <div class="text-start text-accent font-semibold">
             <p class="text-xl">PLAYER X</p>
@@ -23,8 +23,12 @@
         </div>
     </div>
     <app-board (moveEvent)="moveEvent($event)" (winnerEvent)="winnerEvent($event)"></app-board>
-    <div class="font-semibold text-center text-3xl text-accent">{{result}}</div>
-    <div class="self-center">
-        <button class="py-2 px-8 rounded-3xl bg-primary border-2 border-accent text-accent hover:border-white hover:font-semibold transition transform hover:-translate-y-1" (click)="play()">restart</button>
+    <div class="h-8">
+        <p class="font-semibold text-center text-xl text-accent">{{result}}</p>
+    </div> 
+    <div >
+        <button class="py-2 px-8 rounded-3xl bg-primary border-2 border-accent text-accent hover:border-white hover:font-semibold transition transform hover:-translate-y-1" (click)="play()">
+            RESTART
+        </button>
     </div>
 </main>
