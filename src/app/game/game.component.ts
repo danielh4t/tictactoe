@@ -35,14 +35,14 @@ export class GameComponent implements OnInit
     this.games++;
     if(this.winner === 'X') {
      this.xScore++;
-     this.result = 'X won!';
+     this.result = 'X WON!';
     }
     else if(this.winner === 'O'){ 
       this.oScore++;
-      this.result = 'O won!';
+      this.result = 'O WON!';
     }
     else if(this.winner === null && this.games > 0) {
-      this.result = 'draw';
+      this.result = 'DRAW';
     }
   }
 
