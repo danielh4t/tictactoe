@@ -103,7 +103,8 @@ export class BoardComponent implements OnInit
       {
         // winner
         this.endGame(player)
-      } else if (state === null)
+      } 
+      else if (state === null)
       {
         // draw
         this.endGame(null)
